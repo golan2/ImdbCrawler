@@ -1,5 +1,6 @@
 package crawler.imdb;
 
-interface ImdbEntity {
-    String getName();
+public interface ImdbEntity {
+    String getTitle();
+    String getId();
 }

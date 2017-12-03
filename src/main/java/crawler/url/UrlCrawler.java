@@ -1,14 +1,11 @@
 package crawler.url;
 
-import io.vertx.core.AsyncResult;
-import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.HttpClientOptions;
 import io.vertx.core.http.HttpClientRequest;
-import io.vertx.core.http.HttpClientResponse;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import org.jgrapht.Graph;
@@ -21,12 +18,10 @@ import org.jsoup.select.Elements;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class UrlCrawler {
+class UrlCrawler {
 
 
     private static final int URL_CACHE_SIZE = 50000;
@@ -149,34 +144,6 @@ public class UrlCrawler {
         if ("http".equals(uri.getScheme())) return 80;
         if ("https".equals(uri.getScheme())) return 443;
         return -1;
-    }
-
-
-
-    public void getNames(HttpClient client, Handler<AsyncResult<Object>> handler) {
-        // Emit a HTTP GET
-        client.get("/names",
-                new Handler<HttpClientResponse>() {
-                    @Override
-                    public void handle(HttpClientResponse response) {
-                        response.bodyHandler(new Handler<Buffer>() {
-                            @Override
-                            public void handle(Buffer body) {
-                                // When the body is read, invoke the result handler
-                                handler.handle(Future.succeededFuture(body.toJsonArray()));
-                            }
-                        });
-                    }
-                })
-                .exceptionHandler(new Handler<Throwable>() {
-                    @Override
-                    public void handle(Throwable t) {
-                        // If something bad happen, report the failure to the passed handler
-                        handler.handle(Future.failedFuture(t));
-                    }
-                })
-                // Call end to send the request
-                .end();
     }
 
 

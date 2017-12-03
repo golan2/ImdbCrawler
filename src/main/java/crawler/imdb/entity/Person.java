@@ -3,16 +3,10 @@ package crawler.imdb.entity;
 import crawler.imdb.ImdbUriFactory;
 import io.vertx.core.json.JsonObject;
 
-import java.util.Map;
-
 public class Person extends AbsImdbEntity {
 
     public Person(String id, String title) {
         super(id, title);
-    }
-
-    public static Person fromMap(Map<String, String> map) {
-        return new Person(map.get("person_id"), map.get("title"));
     }
 
     /**
@@ -40,7 +34,7 @@ public class Person extends AbsImdbEntity {
      * Store the original json on the id field
      */
     private static class UnparssedPerson extends Person {
-        public UnparssedPerson(String json) {
+        UnparssedPerson(String json) {
             super(json, "UnparssedPerson");
         }
 

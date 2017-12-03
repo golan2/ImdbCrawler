@@ -4,7 +4,7 @@ import io.vertx.core.json.JsonObject;
 
 public class Movie extends AbsImdbEntity {
 
-    Movie(String id, String title) {
+    private Movie(String id, String title) {
         super(id, title);
     }
 

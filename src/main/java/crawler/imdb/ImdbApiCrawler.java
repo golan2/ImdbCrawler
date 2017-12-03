@@ -18,7 +18,7 @@ import java.net.URISyntaxException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class ImdbApiCrawler {
+class ImdbApiCrawler {
 
     public static void main(String[] args) throws URISyntaxException, InterruptedException {
 

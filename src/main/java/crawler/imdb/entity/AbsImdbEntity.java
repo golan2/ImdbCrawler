@@ -1,10 +1,10 @@
-package crawler.imdb;
+package crawler.imdb.entity;
 
 class AbsImdbEntity implements ImdbEntity {
     private final String id;
     private final String title;
 
-    public AbsImdbEntity(String id, String title) {
+    AbsImdbEntity(String id, String title) {
         if (id==null) throw new IllegalArgumentException("Null is not allowed for id");
         if (title==null) throw new IllegalArgumentException("Null is not allowed for title");
 
@@ -38,5 +38,14 @@ class AbsImdbEntity implements ImdbEntity {
         int result = id.hashCode();
         result = 31 * result + title.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"type\": \"" + this.getClass().getSimpleName() + '\"' +
+                ", \"id\": \"" + id + '\"' +
+                ", \"title\": \"" + title + '\"' +
+                '}';
     }
 }

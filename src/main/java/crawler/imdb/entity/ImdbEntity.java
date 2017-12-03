@@ -1,4 +1,4 @@
-package crawler.imdb;
+package crawler.imdb.entity;
 
 public interface ImdbEntity {
     String getTitle();

@@ -1,10 +1,8 @@
 package crawler.imdb;
 
-import java.net.URI;
-import crawler.imdb.handlers.ImdbApiHandlerFactory;
 import crawler.imdb.entity.ImdbEntity;
-import crawler.imdb.ImdbUriFactory;
 import crawler.imdb.entity.Person;
+import crawler.imdb.handlers.ImdbApiHandlerFactory;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.buffer.Buffer;
@@ -15,6 +13,7 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
